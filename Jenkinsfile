@@ -28,13 +28,6 @@ pipeline {
                 sh 'npm test'
             }
         }
-
-        stage('Deploy') {
-            steps {
-                // Example: Deploy to a web server or push to a cloud service
-                // Adjust this stage based on your deployment needs
-            }
-        }
     }
 
     post {
