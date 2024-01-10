@@ -8,12 +8,17 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        
+    stage('Install Dependencies') {
             steps {
-                // Install Node.js dependencies
-                sh 'npm install'
+                script {
+                    sh 'which node'  // Print the location of the node executable
+                    sh 'which npm'   // Print the location of the npm executable
+                    sh 'npm --version'  // Print npm version
+                    sh 'npm install'
             }
         }
+    }
 
         stage('Build') {
             steps {
