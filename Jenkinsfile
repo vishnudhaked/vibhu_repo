@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the source code from your version control system
+                // Checkout the source code from your Git repository
                 checkout scm
             }
         }
@@ -23,6 +23,13 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                // Run tests if applicable
+                sh 'npm test'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 // Example: Deploy to a web server or push to a cloud service
@@ -34,10 +41,11 @@ pipeline {
     post {
         success {
             // Additional post-build actions on success
+            echo 'Build and deployment successful!'
         }
         failure {
             // Additional post-build actions on failure
+            echo 'Build and deployment failed!'
         }
     }
 }
-
