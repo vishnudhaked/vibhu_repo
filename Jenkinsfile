@@ -16,6 +16,7 @@ pipeline {
             }
         }
 
+        
         stage('Build') {
             steps {
                 // Build the React.js application
