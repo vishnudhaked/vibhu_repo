@@ -1,22 +1,18 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Clone Repository') {
-            steps {
-                // Assuming your React.js project is hosted on GitHub
-                checkout scm
-            }
-        }
+    environment {
+        PATH = "/usr/bin/npm:$PATH"
+    }
 
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Install create-react-app globally
-                    sh 'sudo npm install -g create-react-app -s'
+                    // Install create-react-app globally without sudo
+                    npmInstallGlobal('create-react-app')
                     
                     // Install project dependencies
-                    sh 'sudo npm install -s'
+                    npmInstallLocal()
                 }
             }
         }
@@ -24,14 +20,14 @@ pipeline {
         stage('Build React Application') {
             steps {
                 // Create a new React app using create-react-app
-                sh 'sudo npx create-react-app hello-world-example'
+                sh 'npx create-react-app hello-world-example'
             }
         }
 
         stage('Start App') {
             steps {
                 // Change to the app's directory and start the app
-                sh 'sudo cd hello-world-example && npm start'
+                sh 'cd hello-world-example && npm start'
             }
         }
     }
@@ -46,5 +42,16 @@ pipeline {
             echo 'Build and deployment failed!'
         }
     }
+
+    // Custom function to install npm packages globally
+    def npmInstallGlobal(package) {
+        sh "npm install -g $package"
+    }
+
+    // Custom function to install npm packages locally
+    def npmInstallLocal() {
+        sh 'npm install'
+    }
 }
+
 
