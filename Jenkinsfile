@@ -1,36 +1,37 @@
 pipeline {
     agent any
+
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                // Checkout the source code from your Git repository
+                // Assuming your React.js project is hosted on GitHub
                 checkout scm
             }
         }
 
-        
-    stage('Install Dependencies') {
+        stage('Install Dependencies') {
             steps {
                 script {
-                    sh 'which node'  // Print the location of the node executable
-                    sh 'which npm'   // Print the location of the npm executable
-                    sh 'npm --version'  // Print npm version
+                    // Install create-react-app globally
+                    sh 'npm install -g create-react-app'
+                    
+                    // Install project dependencies
                     sh 'npm install'
-            }
-        }
-    }
-
-        stage('Build') {
-            steps {
-                // Build the React.js application
-                sh 'npm run build'
+                }
             }
         }
 
-        stage('Test') {
+        stage('Build React App') {
             steps {
-                // Run tests if applicable
-                sh 'npm test'
+                // Create a new React app using create-react-app
+                sh 'npx create-react-app hello-world-example'
+            }
+        }
+
+        stage('Start App') {
+            steps {
+                // Change to the app's directory and start the app
+                sh 'cd hello-world-example && npm start'
             }
         }
     }
@@ -46,3 +47,4 @@ pipeline {
         }
     }
 }
+
