@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/usr/bin/npm"
-    }
-
         stage('Install Dependencie') {
             steps {
                 script {
