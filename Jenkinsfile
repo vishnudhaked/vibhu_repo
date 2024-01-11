@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Build React App') {
+        stage('Build React Application') {
             steps {
                 // Create a new React app using create-react-app
                 sh 'npx create-react-app hello-world-example'
