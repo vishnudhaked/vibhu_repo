@@ -39,15 +39,4 @@ pipeline {
         }
     }
 
-    // Custom function to install npm packages globally
-    def npmInstallGlobal(package) {
-        sh "npm install -g $package"
-    }
-
-    // Custom function to install npm packages locally
-    def npmInstallLocal() {
-        sh 'npm install'
-    }
-}
-
 
