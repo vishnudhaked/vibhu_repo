@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "/usr/bin/npm:$PATH"
+        PATH = "/usr/bin/npm"
     }
 
         stage('Install Dependencie') {
