@@ -16,7 +16,7 @@ pipeline {
                     sh 'sudo npm install -g create-react-app'
                     
                     // Install project dependencies
-                    sh 'sudo npm install'
+                    sh 'sudo npm install -s'
                 }
             }
         }
