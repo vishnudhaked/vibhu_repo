@@ -13,10 +13,10 @@ pipeline {
             steps {
                 script {
                     // Install create-react-app globally
-                    sh 'npm install -g create-react-app'
+                    sh 'sudo npm install -g create-react-app'
                     
                     // Install project dependencies
-                    sh 'npm install'
+                    sh 'sudo npm install'
                 }
             }
         }
@@ -24,14 +24,14 @@ pipeline {
         stage('Build React Application') {
             steps {
                 // Create a new React app using create-react-app
-                sh 'npx create-react-app hello-world-example'
+                sh 'sudo npx create-react-app hello-world-example'
             }
         }
 
         stage('Start App') {
             steps {
                 // Change to the app's directory and start the app
-                sh 'cd hello-world-example && npm start'
+                sh 'sudo cd hello-world-example && npm start'
             }
         }
     }
