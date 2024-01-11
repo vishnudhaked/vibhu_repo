@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script {
                     // Install create-react-app globally
-                    sh 'sudo npm install -g create-react-app'
+                    sh 'sudo npm install -g create-react-app -s'
                     
                     // Install project dependencies
                     sh 'sudo npm install -s'
