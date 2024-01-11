@@ -5,7 +5,7 @@ pipeline {
         PATH = "/usr/bin/npm:$PATH"
     }
 
-        stage('Install Dependencies') {
+        stage('Install Dependencie') {
             steps {
                 script {
                     // Install create-react-app globally without sudo
