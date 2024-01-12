@@ -35,17 +35,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Deploy') {
-            steps {
-                script {
-                    def dockerCmd = 'docker run -itd --name react_container -p 3000:3000 cloud01/dev:latest'
-                    sshagent(['sshkeypair']) {
-                        sh "ssh -o StrictHostKeyChecking=no ubuntu@34.238.155.217 ${dockerCmd}"
-                    }
-                }
-            }
-        }
     }
 }
 
