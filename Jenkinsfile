@@ -36,7 +36,7 @@ pipeline {
             }
         }
 
-        stage('Deployment') {
+        stage('Deploy') {
             steps {
                 script {
                     def dockerCmd = 'docker run -itd --name react_container -p 3000:3000 cloud01/dev:latest'
