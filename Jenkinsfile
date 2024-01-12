@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('Build Image') {
+        stage('Building Image') {
             steps {
                 sh 'docker build -t reactimage .'
                 sh 'docker tag reactimage:latest cloud01/dev:latest'
