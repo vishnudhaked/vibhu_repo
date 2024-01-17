@@ -14,11 +14,6 @@ pipeline {
         // Add more stages as needed
     }
 
-    post {
-        always {
-            // Cleanup or additional steps to execute always
-        }
-    }
 }
 
 
