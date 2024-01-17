@@ -1,24 +1,27 @@
 pipeline {
-    agent {
-        docker {
-            image 'node'
-            args '-u root'
-        }
-    }
+    agent any
 
     stages {
-        stage('Build') {
+        stage('Install create-react-app') {
             steps {
-                echo 'Building...'
-                sh 'npm install'
+                script {
+                    // Run the npm install command
+                    sh 'npm install -g create-react-app'
+                }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                sh 'npm test'
-            }
+
+        // Add more stages as needed for your pipeline
+    }
+
+    post {
+        success {
+            echo 'create-react-app installed successfully.'
+        }
+        failure {
+            echo 'Failed to install create-react-app.'
         }
     }
 }
+
 
