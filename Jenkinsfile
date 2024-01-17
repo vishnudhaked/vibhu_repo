@@ -20,12 +20,6 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            // Clean up or post-build steps if needed
-        }
-    }
 }
 
 
