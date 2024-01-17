@@ -1,26 +1,31 @@
 pipeline {
     agent any
-
+    
     stages {
+        stage('Install tar latest') {
+            steps {
+                script {
+                    // Use npm to install tar at the latest version globally
+                    sh 'npm install -g tar@latest'
+                }
+            }
+        }
+        
         stage('Install create-react-app') {
             steps {
                 script {
-                    // Install create-react-app globally
+                    // Use npm to install create-react-app globally
                     sh 'npm install -g create-react-app'
                 }
             }
         }
-
+        
         stage('Create React App') {
             steps {
                 script {
-                    // Create a new React app
-                    sh 'npx create-react-app hello-world-example'
-                }
-            }
-        }
-    }
-}
+                    // Use npx to create a new React app
+                    sh 'npx create
+
 
 
 
