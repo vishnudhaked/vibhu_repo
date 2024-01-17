@@ -24,7 +24,13 @@ pipeline {
             steps {
                 script {
                     // Use npx to create a new React app
-                    sh 'npx create
+                    sh 'npx create-react-app hello-world-example'
+                }
+            }
+        }
+    }
+
+}
 
 
 
