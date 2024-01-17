@@ -7,7 +7,9 @@ pipeline {
                 script {
                     // Install NVM
                     sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash'
-                    sh 'source ~/.bashrc'
+
+                    // Ensure nvm command is available in the current shell
+                    sh 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
 
                     // Install Node.js using NVM
                     sh 'nvm install node'
@@ -30,6 +32,7 @@ pipeline {
         }
     }
 }
+
 
 
 
