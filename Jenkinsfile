@@ -16,7 +16,7 @@ pipeline {
                     sh 'export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && nvm install node'
                     
                     // Install create-react-app globally
-                    sh 'npm install -g create-react-app'
+                    sh 'sudo npm install -g create-react-app'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Create a new React app
-                    sh 'npx create-react-app hello-world-example'
+                    sh 'sudo npx create-react-app hello-world-example'
                 }
             }
         }
